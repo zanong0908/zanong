@@ -1,20 +1,26 @@
 //boost::any 에 대하여,,,
 #include <iostream>
-#include <boost/any.hpp> //boost::any 헤더파일
+#include <boost/any.hpp>
+//boost::any 헤더파일
 #include <string>
 
 using namespace std;
 
 int main()
 {
-	boost::any str(string("boost any,,"));
-	//boost any는 무슨 타입이던 다 저장하는 자료형, 문자열 저장
+	boost::any str(string("boost any,,"));	//boost any는 무슨 타입이던 다 저장하는 자료형, 문자열 저장
 	
-	string str1 = boost::any_cast<string>(str);
-	//가져올 때에는 boost::any_cast로 가져오는 듯 함...
+	string str1 = boost::any_cast<string>(str);	//가져올 때에는 boost::any_cast로 가져오는 듯 함...
 	
-	string& i = boost::any_cast<string&>(str);
-	//str(boost any,,)을 _cast를 사용하여 i에 대입
-	cout << i << endl;
-	//boost any,, 출력
+	string& i = boost::any_cast<string&>(str);	//str(boost any,,)을 _cast를 사용하여 i에 대입
+	
+	cout << i << endl;	//boost any,, 출력
+	
+	boost::any var(5);	//정수 저장
+	
+	int j = boost::any_cast<int>(var);	// boost::any_cast<자료형>(변수명)인듯합니다.
+	
+	cout << j << endl;	// 5 출력
+	
+	return 0;
 }
