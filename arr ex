@@ -1,0 +1,27 @@
+#include <iostream>
+#include <boost/any.hpp> //boost::any 헤더파일
+#include <string>
+using namespace std;
+
+int main()
+{
+
+  boost::any tru(false);
+  bool a = boost::any_cast<bool>(tru);
+  
+  boost::any num(10);
+  int b = boost::any_cast<int>(num);
+  
+  //boost::any var(-5);
+  //double c = boost::any_cast<double>(var);
+  
+  boost::any str(string("boost any,,"));
+  string d = boost::any_cast<string>(str);
+  
+  cout << a << endl;
+  cout << b << endl;
+  //cout << c << endl;
+  cout << d << endl;
+  
+  return 0;
+}
